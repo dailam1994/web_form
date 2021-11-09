@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lash Lash</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js" defer></script>
+    <script src="https://kit.fontawesome.com/4432a7f366.js"></script>
+</head>
+<body>
+    <header>
+        <img 
+            src="images/logo.svg" 
+            alt="logo" />
+        <h1>Lash Lash</h1>
+        <i      id="help-link" 
+                class="fas fa-question-circle" 
+                onmouseover="reveal()" 
+                onmouseleave="unreveal()">
+            <video  
+                id="video"
+                src="videos/help.mp4" 
+                autoplay
+                loop
+                controls>
+            </video>
+        </i>
+    </header>
+    <main>
+        <fieldset>
+            <legend>Reservations</legend>
+            <form   id="my-form"
+                    action="#"
+                    onsubmit="onSubmit()"
+                    novalidate="">
+                <section>
+                    <h2>Full Name</h2>
+                    <div id='full-name-error'></div>
+                    <input 
+                        type="text"
+                        id="full-name"
+                        name="full-name"
+                        title="full-name"
+                        placeholder="Full Name" 
+                        pattern="^[a-zA-Z ,.'-]{3,}$" 
+                        oninput="checkInput()"
+                        maxlength="255"
+                        autofocus 
+                        required />
+                    <label for="full-name">Full Name:</label>
+                    <i class="fas fa-info-circle"></i>
+                </section>
+                <section>
+                    <h2>Email</h2>
+                    <div id='email-error'></div>
+                    <input 
+                        type="email"
+                        id="email"
+                        name="email"
+                        title="email"
+                        placeholder="Email address" 
+                        pattern="[a-zA-z0-9_.+-]+@[a-zA-z0-9-]+\.[a-zA-Z0-9-.]+" 
+                        oninput="checkInput()"
+                        maxlength="255"
+                        required />
+                    <label for="email">Email:</label>
+                    <i class="fas fa-envelope"></i> 
+                </section>
+                <section>
+                    <h2>Number</h2>
+                    <div id='number-error'></div>
+                    <input 
+                        type="tel"
+                        id="number"
+                        name="number"
+                        title="number"
+                        placeholder="Phone number" 
+                        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,9}" 
+                        oninput="checkInput()"
+                        maxlength="15"
+                        required />
+                    <label for="number">Phone:</label>
+                    <i class="fas fa-phone-square"></i>
+                </section>
+                <section>
+                    <h2>Date</h2>
+                    <div id='date-error'></div>
+                    <input 
+                        type="date"
+                        id="date"
+                        name='date'
+                        title="date"
+                        oninput="checkInput()" 
+                        min="2021-10-10" 
+                        max="2100-01-10" 
+                        required />
+                    <label for="date">Date:</label>
+                </section>   
+                <section>
+                    <h2>Service</h2>
+                    <select id='service'>
+                        <option value="">Select Service</option>
+                        <option value="service-one">Service 1</option>
+                        <option value="service-two">Service 2</option>
+                        <option value="service-three">Service 3</option>
+                    </select>
+                </section>   
+                <aside>
+                    <input 
+                        type="checkbox" 
+                        id="checkbox"
+                        name='checkbox'
+                        title="checkbox"
+                        oninput="checkInput()" 
+                        required />
+                    <label for="checkbox" > Agree to terms & conditions</label>
+                </aside>
+                <div id='checkbox-error'></div>
+                <button type="submit">Book</button>
+            </form>
+        </fieldset>
+    </main>
+</body>
+</html>

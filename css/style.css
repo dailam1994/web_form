@@ -1,0 +1,271 @@
+/* Global Variables */
+:root {
+    --cherry: rgb(204,37,44);
+    --cherryBolossom: rgb(255,183,197);
+    --tangerine: rgb(242,133,0);
+    --gunMetalGray: rgb(161,160,164);
+}
+
+/* Overall */
+body {
+    margin: 0;
+    border: 0;
+    font-family: cursive;
+}
+
+h1 {
+    grid-area: brand;
+    font-size: 40px;
+}
+
+/* #Help Video */
+#help-link {
+    grid-area: help;
+    place-self: center;
+    font-size: 30px;
+}
+
+video {
+    z-index: 1;
+    display: none;
+    position: absolute;
+    right: 30px;
+}
+
+/* #Content */
+header {
+    display: grid;
+    grid-template-columns: 70px 1fr 70px;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+        "logo brand help";
+    border-top: 5px solid rgb(0,0,0);
+    border-bottom: 5px solid rgb(0,0,0);
+    background-color: var(--cherryBolossom);
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    margin-top: 30px;
+}
+
+/* #Form */
+fieldset {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 10px;
+    padding: 0;
+    border: 5px solid var(--cherryBolossom);
+    border-radius: 10px;
+}
+
+legend {
+    font-size: 35px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    margin: 0px 5px;
+    border-radius: 10px;
+}
+
+form > section {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+section {
+    position: relative;
+    margin-bottom: 5px;
+}
+
+section > h2 {
+    display: none;
+}
+
+section > * {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    font-size: 25px;
+}
+
+label {
+    margin-bottom: -15px;
+}
+
+section > select {
+    text-align: center;
+}
+
+section > input, section > select {
+    margin-bottom: 5px;
+    box-shadow: 3px 3px var(--gunMetalGray);
+}
+
+/* ##Checkbox Section */
+aside {
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+aside > input {
+    margin: 10px;
+    transform: scale(2);
+}
+
+aside > label {
+   font-size: 25px; 
+}
+
+/* ##Submit */
+button {
+    align-self: flex-end;
+    height: 50px; 
+    width: 100px;
+    text-align: center;
+    font-size: 25px;
+    border: 3px solid rgb(0,0,0);
+    border-radius: 10px;
+    background-color: var(--cherryBolossom);
+}
+
+/* ##Icons */
+section > i {
+    position: absolute;
+    align-self: end;
+    color: var(--gunMetalGray);
+}
+
+/* ##Pseudo-classes */
+section > input:required + label::after,
+aside > input:required + label::before {
+    content: '*';
+    color: var(--cherry);
+}
+
+select:optional {
+    border: 2px solid var(--gunMetalGray);
+}
+
+input:focus {
+    border: 5px solid var(--tangerine);
+}
+
+input:valid {
+    background-color: var(--cherryBolossom);
+}
+
+input:invalid {
+    border: 2px solid var(--tangerine);
+}
+
+input:active {
+    font-weight: bold;
+}
+
+input::placeholder {
+    border-bottom: 2px solid var(--cherryBolossom);
+}
+
+/* ##Error Divs */
+div {
+    display: none;
+    text-align: left;
+    font-size: 15px;
+    color: var(--cherry);
+}
+
+#full-name-error, #number-error, #date-error {
+    height: 25px;
+}
+
+/* Media Queries Desktop View 1224px */
+@media screen 
+        and (min-width: 1224px) {
+    /* ##Logo */
+    img {
+        grid-area: logo;
+        align-self: center;
+        height: 100px;
+        width: 100px;
+        margin-left: 30px;
+    }
+
+    h1 {
+        grid-area: brand;
+        text-align: left;
+        margin-left: 100px;
+        font-size: 40px;
+    }
+
+    /* #Main */
+    main {
+        margin: 50px 30px;
+    }
+
+    /* ##Icons */
+    section > i {
+        top: 50px;
+        right: 10px;
+    }
+
+    /* Video */
+    video {
+        height: 500px;
+        width: 600px;
+    }
+}
+
+
+/* Media Queries Mobile View 320px to 480px */
+@media screen 
+        and (min-width: 320px)
+        and (max-width: 480px) {
+
+    /* #Header */
+    header {
+        place-items: center;
+    }
+
+    /* ##Logo */
+    img {
+        grid-area: logo;
+        height: 70px;
+        width: 70px;
+        margin-left: 30px;
+    }
+
+    section {
+        width: 100%;
+    }
+
+    section > input {
+        margin: 0px 10px;
+    }
+
+    section > label, select {
+        display: none;
+    }
+
+    /* ##Icons */
+    section > i {
+        top: 15px;
+        right: 20px;
+        width: 20px;
+    }
+
+     /* Video */
+     video {
+        height: 150px;
+        width: 250px;
+    }
+}
